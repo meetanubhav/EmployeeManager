@@ -5,25 +5,25 @@ $(document).ready(function () {
 });
 
 function loadDataTable() {
-    dataTable = $('#DT_load').DataTable({
+    dataTable = $('#EmployeeDataTable').DataTable({
         "ajax": {
             "url": "/Employee/getall/",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
-            { "data": "name", "width": "20%" },
-            { "data": "department", "width": "20%" },
-            { "data": "location", "width": "20%" },
+            { "data": "name" },
+            { "data": "department" },
+            { "data": "location" },
             {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="text-center">
-                        <a href="/Employee/Update?id=${data}" class='btn btn-success text-white' style='cursor:pointer; width:70px;'>
+                        <a href="/Employee/Update?id=${data}" class='btn btn-success text-white'>
                             Edit
                         </a>
                         &nbsp;
-                        <a class='btn btn-danger text-white' style='cursor:pointer; width:70px;'
+                        <a class='btn btn-danger text-white'
                             onclick=Delete('/Employee/Delete?id='+${data})>
                             Delete
                         </a>
